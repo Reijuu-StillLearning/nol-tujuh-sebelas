@@ -1,0 +1,1 @@
+Place an audio file you have permission to use here as `our-song.mp3`, then configure `music.enabled`, `music.path`, and `music.title` in `src/data/birthday.ts` or Birthday Studio. Playback requires an explicit tap and never starts automatically. The site works without music. Files placed in `public/` are publicly served.

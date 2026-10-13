@@ -1,0 +1,1 @@
+{"root":["./src/main.tsx","./src/vite-env.d.ts","./src/components/admin.tsx","./src/components/experience.tsx","./src/data/birthday.ts","./src/lib/backend.ts","./src/lib/localmedia.ts","./src/lib/time.test.ts","./src/lib/time.ts","./src/lib/validation.test.ts","./src/lib/validation.ts"],"version":"5.8.3"}
