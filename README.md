@@ -16,7 +16,7 @@ The project is a Vite static application and includes [`vercel.json`](./vercel.j
 - `VITE_SUPABASE_ANON_KEY` with the public anon/publishable key only.
 - `VITE_DEV_LOCAL_STUDIO=false`.
 
-Run the Supabase migration and administrator allow-list setup from [`README-backend.md`](./README-backend.md) before testing the online editor. Never deploy the local unauthenticated editor or a Supabase service-role/secret key. After deployment, verify `/`, `/admin`, a refreshed `/admin` URL, administrator login, and explicit publish behavior.
+Run both Supabase migrations and the administrator allow-list setup from [`README-backend.md`](./README-backend.md) before testing the online editor. Never deploy the local unauthenticated editor or a Supabase service-role/secret key. After deployment, verify `/`, `/admin`, a refreshed `/admin` URL, administrator login, and explicit publish behavior.
 
 No starter project or personal images were attached, so this project was created from scratch. The Supabase client/auth/migration integration is described in `README-backend.md` once configured. **Without Supabase credentials, online sign-in, cross-device persistence, protected uploads, and publishing do not work.** A deliberately opt-in development editor can be enabled on *localhost only* with `VITE_DEV_LOCAL_STUDIO=true` in `.env.local`; it stores drafts/photos in this browser only. This editor has **no login and no security boundary**, clears if browser site data is removed, and must never be deployed. Set the flag to `false` for previews and production. In unconfigured or deployed builds `/admin` is a locked setup screen, not falsely represented as authenticated.
 

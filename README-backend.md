@@ -3,7 +3,7 @@
 The source ships without credentials. **Online authentication, durable uploads and publication are not connected until you complete these steps.** Never copy a Supabase service-role/secret key into a `VITE_` variable or browser. The only frontend key is the project's public anon/publishable key; SQL/RLS is the security boundary.
 
 1. Create a Supabase project. In **Authentication**, disable public sign-up; invite/create your one administrator account using the Supabase dashboard. Keep admin credentials private.
-2. In SQL Editor, run `supabase/migrations/001_birthday.sql` as the project owner. It creates the `birthday_admins` allow-list, draft/published content rows, media inventory, private Storage bucket, and policies. It also creates `publish_birthday(next jsonb)`, which strips unpublished gallery/story items and rejects unsafe image paths before updating the public snapshot.
+2. In SQL Editor, run `supabase/migrations/001_birthday.sql` as the project owner, followed by `supabase/migrations/002_public_published_read.sql`. The first migration creates the `birthday_admins` allow-list, draft/published content rows, media inventory, private Storage bucket, and policies. It also creates `publish_birthday(next jsonb)`, which strips unpublished gallery/story items and rejects unsafe image paths before updating the public snapshot. The second migration grants the anonymous browser role permission to query the published row; RLS still prevents it from reading drafts.
 3. Copy your own Auth user's UUID from the Supabase dashboard and allow-list it, as project owner, with:
 
    `insert into public.birthday_admins(user_id) values ('YOUR-AUTH-USER-UUID');`
